@@ -63,3 +63,4 @@ Sistema web para gestão operacional de pintura eletrostática a pó, controle d
 - O Neon também mantém histórico do banco (restauração pelo painel do Neon, conforme o plano).
 - Senhas são guardadas **criptografadas (scrypt)** no servidor; a sessão usa cookie protegido (HttpOnly). As permissões (ADM x Operador) são verificadas **no servidor**, não só na tela.
 - O Operador consegue: emitir/editar OS, cadastrar clientes e baixar tinta pela OS. Todo o resto (cadastro de tintas, entradas/ajustes de estoque, exclusões, dados da empresa, usuários, backup) é só do ADM.
+- ajuste
