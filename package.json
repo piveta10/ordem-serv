@@ -1,0 +1,10 @@
+{
+  "name": "piveta-os",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Piveta Pinturas Industriais - Ordem de Servico e Estoque de Tintas (Vercel + Neon)",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "pg": "^8.11.3"
+  }
+}

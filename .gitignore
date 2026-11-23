@@ -1,0 +1,15 @@
+# Logs e arquivos temporários
+*.log
+.DS_Store
+Thumbs.db
+
+# Backups temporários
+*.tmp
+*.bak
+
+# Dependências e segredos (nunca enviar)
+node_modules/
+.env
+.env.*
+.vercel/
+test/
