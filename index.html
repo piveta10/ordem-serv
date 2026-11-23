@@ -3577,7 +3577,7 @@ const Auth = {
     const err = this.validateNewPassword(newPw);
     if (err) return { success: false, message: err };
     try {
-      await Storage.api('/api/users', 'POST', { action: 'reset', id: userId, password: newPw });
+      await Storage.api('/api/data', 'POST', { action: 'user_reset', id: userId, password: newPw });
       return { success: true };
     } catch (e) { return { success: false, message: e.message }; }
   },
@@ -3585,7 +3585,7 @@ const Auth = {
   async addUser({ name, username, role, password }) {
     if (!this.isAdmin()) return { success: false, message: 'Apenas Administradores podem criar usuários.' };
     try {
-      await Storage.api('/api/users', 'POST', { action: 'add', name, username, role, password });
+      await Storage.api('/api/data', 'POST', { action: 'user_add', name, username, role, password });
       await Storage.load(false);
       return { success: true };
     } catch (e) { return { success: false, message: e.message }; }
@@ -3594,7 +3594,7 @@ const Auth = {
   async deleteUser(id) {
     if (!this.isAdmin()) return { success: false, message: 'Apenas Administradores.' };
     try {
-      await Storage.api('/api/users', 'POST', { action: 'delete', id });
+      await Storage.api('/api/data', 'POST', { action: 'user_delete', id });
       await Storage.load(false);
       return { success: true };
     } catch (e) { return { success: false, message: e.message }; }
