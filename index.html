@@ -2061,6 +2061,89 @@ body.modal-open { overflow: hidden; }
 .sync-off { background:#fee2e2; color:#991b1b; cursor:pointer; }
 @media (max-width: 992px) { .sync-pill { font-size:0.66rem; padding:2px 7px; } }
 @media print { .sync-pill { display:none !important; } }
+
+/* ==========================================================================
+   v2.1 — QUADRO DE PRODUÇÃO, BARRAS DE ESTOQUE, MENU ⋯ E FICHA DA OS
+   ========================================================================== */
+.board-layout { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; margin-bottom: 28px; }
+.board { flex: 999 1 640px; min-width: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.board-col { background: #e2e8f0; border-radius: var(--radius-md); padding: 12px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.board-col-head { display: flex; justify-content: space-between; align-items: center; padding: 2px 4px; }
+.board-col-head h3 { font-size: 0.8rem; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase; color: #334155; }
+.board-count { font-size: 0.75rem; font-weight: 700; background: #fff; border-radius: 999px; padding: 1px 9px; color: #334155; }
+.board-empty { font-size: 0.82rem; color: #475569; text-align: center; padding: 18px 8px; border: 1px dashed #94a3b8; border-radius: var(--radius-sm); }
+.board-more { font-size: 0.8rem; text-align: center; }
+.os-card { background: #fff; border: 1px solid var(--border-strong); border-radius: var(--radius-md); padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.os-card-open { all: unset; cursor: pointer; display: flex; flex-direction: column; gap: 8px; border-radius: var(--radius-sm); }
+.os-card-open:focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; }
+.os-card-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.os-card-num { font-family: var(--font-mono); font-weight: 800; font-size: 0.9rem; }
+.os-card-nf { font-size: 0.75rem; color: #475569; }
+.os-card-client { font-weight: 700; font-size: 0.95rem; line-height: 1.3; }
+.os-card-paint { font-size: 0.82rem; color: #334155; }
+.os-card-paint code { font-family: var(--font-mono); font-weight: 700; background: #f1f5f9; border: 1px solid var(--border); border-radius: 4px; padding: 1px 5px; margin-right: 4px; }
+.os-card-cure { display: flex; gap: 8px; }
+.os-card-cure > span { flex: 1; background: #fef3c7; border: 1px solid #f59e0b; border-radius: var(--radius-sm); padding: 5px 6px; text-align: center; }
+.os-card-cure small { display: block; font-size: 0.62rem; font-weight: 800; color: #78350f; letter-spacing: 0.5px; }
+.os-card-cure strong { font-family: var(--font-mono); font-size: 1.15rem; }
+.os-card-prep { font-size: 0.75rem; color: #475569; }
+.os-card-actions { display: flex; gap: 6px; }
+.os-card-actions .btn { min-height: 40px; }
+.os-card-actions .btn-main { flex: 1; }
+.btn-more { width: 40px; min-height: 40px; padding: 0; font-size: 1.15rem; line-height: 1; }
+.btn-wa { background: var(--primary); color: #000; font-weight: 700; }
+.btn-wa:hover { background: var(--primary-hover); }
+
+.stock-side { flex: 1 1 280px; background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 16px 18px; display: flex; flex-direction: column; gap: 14px; }
+.stock-side-head { display: flex; justify-content: space-between; align-items: center; }
+.stock-side-head h3 { font-size: 0.95rem; font-weight: 800; }
+.stock-bar-row { display: flex; flex-direction: column; gap: 5px; }
+.stock-bar-top { display: flex; justify-content: space-between; gap: 8px; font-size: 0.82rem; }
+.stock-bar-top strong { font-family: var(--font-mono); }
+.stock-bar-top .low { color: #b91c1c; }
+.stock-bar { height: 8px; border-radius: 999px; background: #e2e8f0; overflow: hidden; }
+.stock-bar span { display: block; height: 8px; border-radius: 999px; background: #0f172a; }
+.stock-bar span.low { background: #dc2626; }
+.stock-bar-min { font-size: 0.7rem; color: #475569; }
+
+.rejected-box { background: #fff7ed; border: 1px solid #fdba74; border-radius: var(--radius-md); padding: 14px 18px; margin-bottom: 20px; font-size: 0.86rem; color: #7c2d12; }
+.rejected-box ul { margin: 6px 0 10px 18px; }
+
+.row-menu { position: fixed; z-index: 1200; background: #fff; border: 1px solid var(--border-strong); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); padding: 6px; min-width: 190px; display: none; flex-direction: column; }
+.row-menu.open { display: flex; }
+.row-menu button { all: unset; cursor: pointer; padding: 10px 12px; border-radius: var(--radius-sm); font-size: 0.88rem; font-weight: 600; color: var(--text-main); }
+.row-menu button:hover, .row-menu button:focus-visible { background: #f1f5f9; }
+.row-menu button.danger { color: #b91c1c; }
+
+.ficha-cure { background: #fef3c7; border: 2px solid #f59e0b; border-radius: var(--radius-md); padding: 12px; margin-bottom: 14px; }
+.ficha-cure-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 10px 0 8px; }
+.ficha-cure-grid div { background: #fff; border: 2px solid #fbbf24; border-radius: var(--radius-sm); padding: 8px; text-align: center; }
+.ficha-cure-grid small { display: block; font-size: 0.7rem; font-weight: 800; color: #78350f; }
+.ficha-cure-grid strong { font-family: var(--font-mono); font-size: 2rem; line-height: 1.1; }
+.ficha-section { border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px 14px; margin-bottom: 14px; display: flex; flex-direction: column; gap: 10px; }
+.ficha-section h4 { font-size: 0.78rem; font-weight: 800; letter-spacing: 0.5px; color: #334155; }
+.ficha-check { display: flex; align-items: center; gap: 12px; min-height: 48px; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); padding: 0 14px; font-size: 0.95rem; font-weight: 600; cursor: pointer; }
+.ficha-check input { width: 22px; height: 22px; accent-color: #0f172a; }
+.ficha-check:has(input:checked) { border: 2px solid #0f172a; background: #f8fafc; }
+.ficha-weights { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.ficha-weights input { height: 52px; font-family: var(--font-mono); font-size: 1.35rem; font-weight: 700; text-align: center; }
+.ficha-net { display: flex; justify-content: space-between; align-items: center; background: #0f172a; color: #fff; border-radius: var(--radius-sm); padding: 12px 14px; font-weight: 700; font-size: 0.85rem; }
+.ficha-net strong { font-family: var(--font-mono); font-size: 1.4rem; color: #fcd34d; }
+.ficha-after { font-size: 0.8rem; color: #475569; }
+.ficha-after .low { color: #b91c1c; }
+#modal-ficha .modal-footer .btn { min-height: 48px; }
+
+.data-table .os-badge-number { word-break: break-all; }
+.data-table .actions-cell { flex-wrap: nowrap; }
+#view-os .data-table th, #view-os .data-table td { padding-left: 12px; padding-right: 12px; }
+@media (max-width: 1100px) { .board { grid-template-columns: repeat(1, minmax(0, 1fr)); } }
+@media (max-width: 992px) {
+  #modal-ficha .modal-card { max-width: 100%; max-height: 100%; height: 100%; border-radius: 0; }
+  #modal-ficha.modal-backdrop { padding: 0; }
+  #modal-ficha .modal-footer { flex-wrap: wrap; }
+  #modal-ficha .modal-footer .btn { flex: 1 1 120px; }
+}
+@media print { .board-layout, .row-menu, .rejected-box { display: none !important; } }
 </style>
 </head>
 <body class="auth-locked">
@@ -2233,7 +2316,7 @@ body.modal-open { overflow: hidden; }
       </nav>
 
       <div class="sidebar-footer">
-        <div>PIVETA PINTURAS v2.0</div>
+        <div>PIVETA PINTURAS v2.1</div>
         <div style="font-size: 0.68rem; color: #475569; margin-top: 2px;">Pintura Eletrostática a Pó</div>
       </div>
     </aside>
@@ -2281,94 +2364,62 @@ body.modal-open { overflow: hidden; }
 
           <!-- CARDS DE MÉTRICAS RÁPIDAS -->
           <div class="kpi-grid">
-            <div class="kpi-card kpi-info">
-              <div class="kpi-content">
-                <span class="kpi-label">OS em Produção</span>
-                <span class="kpi-value" id="kpi-os-producao">0</span>
-                <span class="kpi-subtext">Operando em cabine/estufa</span>
-              </div>
-              <div class="kpi-icon-wrapper">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10"/>
-                  <polyline points="12 6 12 12 16 14"/>
-                </svg>
-              </div>
-            </div>
-
             <div class="kpi-card">
               <div class="kpi-content">
-                <span class="kpi-label">OS Aguardando</span>
+                <span class="kpi-label">Aguardando</span>
                 <span class="kpi-value" id="kpi-os-aguardando">0</span>
-                <span class="kpi-subtext">Fila de pré-tratamento</span>
-              </div>
-              <div class="kpi-icon-wrapper">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
-                  <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
-                </svg>
+                <span class="kpi-subtext">Na fila de pré-tratamento</span>
               </div>
             </div>
-
-            <div class="kpi-card kpi-danger">
+            <div class="kpi-card kpi-info">
               <div class="kpi-content">
-                <span class="kpi-label">Estoque Crítico (≤ 10 kg)</span>
-                <span class="kpi-value" id="kpi-estoque-critico">0</span>
-                <span class="kpi-subtext">Tintas com alerta de reposição</span>
-              </div>
-              <div class="kpi-icon-wrapper">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                  <line x1="12" y1="9" x2="12" y2="13"/>
-                  <line x1="12" y1="17" x2="12.01" y2="17"/>
-                </svg>
+                <span class="kpi-label">Em produção</span>
+                <span class="kpi-value" id="kpi-os-producao">0</span>
+                <span class="kpi-subtext">Em cabine ou estufa</span>
               </div>
             </div>
-
             <div class="kpi-card kpi-success">
               <div class="kpi-content">
-                <span class="kpi-label">Consumo Total de Tinta</span>
-                <span class="kpi-value" id="kpi-consumo-total">0.0 kg</span>
-                <span class="kpi-subtext">Total aplicado em balança</span>
+                <span class="kpi-label">Concluídas hoje</span>
+                <span class="kpi-value" id="kpi-os-concluidas-hoje">0</span>
+                <span class="kpi-subtext" id="kpi-os-avisadas">0 cliente(s) avisado(s)</span>
               </div>
-              <div class="kpi-icon-wrapper">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                </svg>
+            </div>
+            <div class="kpi-card kpi-danger">
+              <div class="kpi-content">
+                <span class="kpi-label">Consumo no mês</span>
+                <span class="kpi-value" id="kpi-consumo-total">0.0 kg</span>
+                <span class="kpi-subtext"><span id="kpi-estoque-critico">0</span> tinta(s) no estoque mínimo</span>
               </div>
             </div>
           </div>
 
-          <!-- PAINEL OBJETIVO VISÍVEL COM AS ORDENS DE SERVIÇO EM ANDAMENTO -->
-          <div class="panel">
-            <div class="panel-header">
-              <div class="panel-title-area">
-                <h3 class="panel-title">Ordens de Serviço na Produção</h3>
-                <span class="panel-subtitle">Visualização rápida para operadores e encarregados</span>
+          <!-- Alterações que o servidor recusou (ficam guardadas neste aparelho) -->
+          <div id="dashboard-rejected-box"></div>
+
+          <!-- QUADRO DE PRODUÇÃO + ESTOQUE -->
+          <div class="board-layout">
+            <section class="board" aria-label="Quadro de produção">
+              <div class="board-col">
+                <div class="board-col-head"><h3>Aguardando</h3><span class="board-count" id="board-count-aguardando">0</span></div>
+                <div id="board-col-aguardando" class="board-col-list"></div>
               </div>
-              <div class="panel-tools">
-                <button class="btn btn-sm btn-outline" onclick="App.switchView('os')">Ver Todas as OS</button>
-                <button class="btn btn-sm btn-primary" onclick="App.openNewOSModal()">+ Nova OS</button>
+              <div class="board-col">
+                <div class="board-col-head"><h3>Em produção</h3><span class="board-count" id="board-count-producao">0</span></div>
+                <div id="board-col-producao" class="board-col-list"></div>
               </div>
-            </div>
-            <div class="table-responsive">
-              <table class="data-table">
-                <thead>
-                  <tr>
-                    <th>OS / NF</th>
-                    <th>Cliente / Razão Social</th>
-                    <th>Tinta / Especificação</th>
-                    <th>Parâmetros de Cura (Estufa)</th>
-                    <th>Entrada & Preparação</th>
-                    <th>Balança (Consumo Real)</th>
-                    <th>Status</th>
-                    <th style="width: 170px;">Ações Rápidas</th>
-                  </tr>
-                </thead>
-                <tbody id="dashboard-os-table-body">
-                  <!-- Linhas geradas dinamicamente -->
-                </tbody>
-              </table>
-            </div>
+              <div class="board-col">
+                <div class="board-col-head"><h3>Concluídas</h3><span class="board-count" id="board-count-concluido">0</span></div>
+                <div id="board-col-concluido" class="board-col-list"></div>
+              </div>
+            </section>
+            <aside class="stock-side" aria-label="Estoque de tintas">
+              <div class="stock-side-head">
+                <h3>Estoque de tintas</h3>
+                <button type="button" class="btn btn-sm btn-outline" onclick="App.switchView('estoque')">Ver tudo</button>
+              </div>
+              <div id="dashboard-stock-bars"></div>
+            </aside>
           </div>
 
         </section>
@@ -3203,6 +3254,76 @@ body.modal-open { overflow: hidden; }
        ========================================================================== -->
   <div id="print-area"></div>
 
+  <!-- ==========================================================================
+       FICHA DA OS (tela do operador; no celular ocupa a tela toda)
+       ========================================================================== -->
+  <div class="modal-backdrop" id="modal-ficha" role="dialog" aria-modal="true" aria-labelledby="ficha-title">
+    <div class="modal-card modal-sm">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="ficha-title" style="font-family: var(--font-mono);">OS</h3>
+          <div id="ficha-status" style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.5px; color: #8a6410;"></div>
+        </div>
+        <button type="button" class="btn-close-modal" aria-label="Fechar" onclick="App.closeModal('modal-ficha')">✕</button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="ficha-id">
+        <div style="margin-bottom: 14px;">
+          <div id="ficha-client" style="font-size: 1.05rem; font-weight: 800;"></div>
+          <div id="ficha-paint" style="font-size: 0.9rem; color: #334155; margin-top: 2px;"></div>
+        </div>
+
+        <div class="ficha-cure" aria-label="Parâmetros de cura">
+          <div class="cura-header-banner" style="margin-bottom: 0;">Parâmetros de cura da estufa</div>
+          <div class="ficha-cure-grid">
+            <div><small>TEMPERATURA</small><strong id="ficha-temp">200 °C</strong></div>
+            <div><small>TEMPO</small><strong id="ficha-time">15 min</strong></div>
+          </div>
+          <div style="font-size: 0.78rem; font-weight: 800; color: #7f1d1d; text-align: center;">Não retire as peças antes do tempo</div>
+        </div>
+
+        <div class="ficha-section">
+          <h4>1. LIMPEZA E PRÉ-TRATAMENTO</h4>
+          <label class="ficha-check"><input type="checkbox" id="ficha-chk-manual"> Limpeza manual</label>
+          <label class="ficha-check"><input type="checkbox" id="ficha-chk-jateamento"> Jateamento</label>
+          <label class="ficha-check"><input type="checkbox" id="ficha-chk-banho"> Banho químico</label>
+          <div class="form-group">
+            <label class="form-label" for="ficha-colaborador">Responsável pela preparação</label>
+            <input type="text" id="ficha-colaborador" class="form-control" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="ficha-datahora">Data/hora da limpeza</label>
+            <input type="text" id="ficha-datahora" class="form-control" placeholder="Preenche sozinho ao marcar" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="ficha-section">
+          <h4>2. PESAGEM NA BALANÇA (KG)</h4>
+          <div class="ficha-weights">
+            <div class="form-group">
+              <label class="form-label" for="ficha-retirada">Retirada</label>
+              <input type="number" step="0.01" min="0" inputmode="decimal" id="ficha-retirada" class="form-control">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ficha-devolvida">Sobra devolvida</label>
+              <input type="number" step="0.01" min="0" inputmode="decimal" id="ficha-devolvida" class="form-control">
+            </div>
+          </div>
+          <div class="ficha-net"><span>Consumo líquido</span><strong id="ficha-liquido">0.00 kg</strong></div>
+          <div class="ficha-after" id="ficha-after"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="App.fichaPrint()">PDF</button>
+        <button type="button" class="btn btn-outline" id="ficha-save" onclick="App.saveFicha(false)">Salvar</button>
+        <button type="button" class="btn btn-success" id="ficha-advance" onclick="App.saveFicha(true)">Salvar e concluir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MENU "⋯" DAS OS -->
+  <div class="row-menu" id="row-menu" role="menu"></div>
+
   <!-- CONTAINER PARA NOTIFICAÇÕES TOAST -->
   <div id="toast-container"></div>
 
@@ -3220,6 +3341,11 @@ body.modal-open { overflow: hidden; }
 function esc(s) {
   return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
+
+// Id seguro para usar dentro de onclick="...('id')" (só letras, números, _ e -)
+function jid(s) { return String(s ?? '').replace(/[^A-Za-z0-9_-]/g, ''); }
+// Número em kg com 2 casas, mesmo se vier vazio ou como texto
+function kg(v, d = 2) { return (parseFloat(v) || 0).toFixed(d); }
 
 // Datas no fuso LOCAL (toISOString usa UTC e errava o dia/hora no Brasil)
 const Util = {
@@ -3371,6 +3497,8 @@ const Storage = {
             const m = this.vers[v.kind] || (this.vers[v.kind] = {});
             if (v.ver === 0) delete m[v.id]; else m[v.id] = v.ver;
           });
+          // o servidor pode ter ajustado registros (ex.: número de OS que já estava em uso)
+          (res.patched || []).forEach(pt => this.applyPatched(pt));
           if (res.rev === this.rev + 1) this.rev = res.rev; // senão: alguém gravou junto; o próximo poll recarrega
         } catch (e) {
           if (e.status === 0 || e.status >= 500) {          // sem rede / erro temporário: tenta de novo
@@ -3381,7 +3509,8 @@ const Storage = {
             return;
           }
           if (e.status === 401) { App.sessionExpired(); return; }
-          // recusado (conflito / sem permissão): descarta e recarrega o que está no servidor
+          // recusado (conflito / sem permissão): guarda o que se perdeu, recarrega o que está no servidor
+          this.rememberRejected(batch.concat(this.queue), e);
           this.queue = [];
           try { await this.load(true); } catch (e2) { /* sem rede */ }
           App.onSyncRejected(e);
@@ -3392,6 +3521,42 @@ const Storage = {
       this.flushing = false;
     }
   },
+
+  applyPatched(pt) {
+    const list = this.data[pt.kind];
+    if (!Array.isArray(list)) return;
+    const i = list.findIndex(r => r.id === pt.id);
+    if (i === -1) return;
+    Object.assign(list[i], pt.record);
+    (this.snap[pt.kind] || (this.snap[pt.kind] = {}))[pt.id] = JSON.stringify(list[i]);
+    if (pt.kind === 'orders' && pt.renamedFrom) {
+      App.showToast(`O número ${pt.renamedFrom} já tinha sido usado em outro aparelho. A OS foi salva como ${pt.record.osNumber}.`, 'warning');
+      App.renderCurrentView();
+    }
+  },
+
+  // Lista (neste aparelho) do que o servidor recusou, para a pessoa poder lançar de novo
+  REJECT_KEY: 'PIVETA_RECUSADAS',
+  rememberRejected(changes, err) {
+    const items = [];
+    const seen = {};
+    const hasOrders = changes.some(c => c.kind === 'orders');
+    changes.forEach(ch => {
+      if (ch.op !== 'put' || !ch.record || seen[ch.kind + ch.id]) return;
+      seen[ch.kind + ch.id] = 1;
+      const r = ch.record;
+      if (ch.kind === 'orders') items.push(`OS ${r.osNumber || ''} — ${r.clientName || 'sem cliente'} (consumo ${kg(r.qtyConsumoLiquidoKg)} kg, status ${r.status || ''})`);
+      else if (ch.kind === 'clients') items.push(`Cliente ${r.name || ''}`);
+      else if (ch.kind === 'paints' && !hasOrders) items.push(`Tinta ${r.code || ''} ${r.name || ''}`);
+    });
+    if (!items.length) return;
+    let all = [];
+    try { all = JSON.parse(localStorage.getItem(this.REJECT_KEY) || '[]'); } catch (e2) { all = []; }
+    all.unshift({ at: Util.now(), why: err && err.message ? err.message : '', items });
+    try { localStorage.setItem(this.REJECT_KEY, JSON.stringify(all.slice(0, 30))); } catch (e2) { /* sem espaço */ }
+  },
+  rejected() { try { return JSON.parse(localStorage.getItem(this.REJECT_KEY) || '[]'); } catch (e) { return []; } },
+  clearRejected() { try { localStorage.removeItem(this.REJECT_KEY); } catch (e) {} },
 
   retryNow() { if (this.status === 'offline') { this.flush(); this.poll(); } },
 
@@ -3711,14 +3876,14 @@ const Inventory = {
 
     const paints = this.getAll();
     const paintIndex = paints.findIndex(p => p.id === paintId);
-    let previousStock = paint.stockKg;
+    let previousStock = parseFloat(paint.stockKg) || 0;
     let newStock = previousStock;
 
     if (type === 'ENTRADA') {
       newStock += qtyKg;
     } else if (type === 'SAIDA_MANUAL') {
       if (previousStock < qtyKg) {
-        return { success: false, message: `Estoque insuficiente! Saldo atual é de apenas ${previousStock.toFixed(2)} kg.` };
+        return { success: false, message: `Estoque insuficiente! Saldo atual é de apenas ${kg(previousStock)} kg.` };
       }
       newStock -= qtyKg;
     } else if (type === 'AJUSTE') {
@@ -3835,7 +4000,7 @@ const Inventory = {
             <line x1="12" y1="9" x2="12" y2="13"/>
             <line x1="12" y1="17" x2="12.01" y2="17"/>
           </svg>
-          <span><strong>${lowStockList.length} tinta(s) com estoque crítico</strong> (abaixo de 10 kg)!</span>
+          <span><strong>${lowStockList.length} tinta(s) com estoque baixo</strong> (no mínimo ou abaixo)</span>
         `;
       } else {
         topbarAlert.style.display = 'none';
@@ -3952,6 +4117,12 @@ const OS = {
 
   save(osData) {
     const orders = this.getAll();
+    const suggested = osData._suggested || '';
+    delete osData._suggested;
+    // OS nova com o número sugerido (não alterado): pega o próximo livre agora, outro aparelho pode ter usado
+    if (!osData.id && (!osData.osNumber || osData.osNumber === suggested)) {
+      osData.osNumber = this.generateNextNumber();
+    }
     if (osData.osNumber && orders.some(o => o.osNumber === osData.osNumber && o.id !== osData.id)) {
       return { success: false, message: `Já existe uma OS com o número ${osData.osNumber}.` };
     }
@@ -3977,9 +4148,6 @@ const OS = {
       }
     } else {
       osData.id = 'os-' + Util.uid();
-      if (!osData.osNumber) {
-        osData.osNumber = this.generateNextNumber();
-      }
       osData.createdAt = new Date().toISOString();
       orders.unshift(osData);
     }
@@ -3988,12 +4156,12 @@ const OS = {
 
     // Movimentação automática de estoque da tinta (Item 6)
     let usage = null;
+    // Se trocou ou tirou a tinta da OS, estorna o consumo na tinta anterior
+    if (oldPaintId && oldPaintId !== (osData.paintId || '') && oldConsumo > 0) {
+      Inventory.applyOSUsage(osData.osNumber, oldPaintId, oldConsumo, 0);
+      oldConsumo = 0;
+    }
     if (osData.paintId) {
-      // Se trocou de tinta, estorna a anterior
-      if (oldPaintId && oldPaintId !== osData.paintId && oldConsumo > 0) {
-        Inventory.applyOSUsage(osData.osNumber, oldPaintId, oldConsumo, 0);
-        oldConsumo = 0;
-      }
       usage = Inventory.applyOSUsage(osData.osNumber, osData.paintId, oldConsumo, consumoLiquido);
     }
 
@@ -4100,7 +4268,7 @@ const Reports = {
         totalEntradasKg: parseFloat(totalEntradasKg.toFixed(2)),
         totalOrdens: paintOrders.length,
         isLowStock: isLowStock,
-        statusEstoque: isLowStock ? 'CRÍTICO (< 10kg)' : 'NORMAL'
+        statusEstoque: isLowStock ? 'BAIXO (no mínimo)' : 'NORMAL'
       };
     });
   },
@@ -4109,8 +4277,15 @@ const Reports = {
     const data = this.getRealStockData();
     let csv = 'Codigo RAL;Especificacao da Tinta;Tipo;Acabamento;Fabricante;Lote;Estoque Real (KG);Status;Consumo Total OS (KG)\n';
     
+    // aspas duplicadas e proteção contra fórmulas do Excel (=, +, -, @)
+    const cell = (v) => {
+      let t = String(v ?? '');
+      if (/^[=+\-@\t\r]/.test(t)) t = "'" + t;
+      return '"' + t.replace(/"/g, '""') + '"';
+    };
     data.forEach(item => {
-      csv += `"${item.code}";"${item.name}";"${item.type}";"${item.finish}";"${item.brand}";"${item.batch}";"${item.stockKg.toFixed(2)}";"${item.statusEstoque}";"${item.totalConsumidoKg.toFixed(2)}"\n`;
+      csv += [item.code, item.name, item.type, item.finish, item.brand, item.batch,
+        kg(item.stockKg), item.statusEstoque, kg(item.totalConsumidoKg)].map(cell).join(';') + '\n';
     });
 
     const blob = new Blob(["\ufeff" + csv], { type: 'text/csv;charset=utf-8;' });
@@ -4125,7 +4300,7 @@ const Reports = {
   printStockReport() {
     const data = this.getRealStockData();
     const lowCount = data.filter(d => d.isLowStock).length;
-    const totalEstoqueGeral = data.reduce((sum, d) => sum + d.stockKg, 0);
+    const totalEstoqueGeral = data.reduce((sum, d) => sum + (parseFloat(d.stockKg) || 0), 0);
 
     const printWindow = window.open('', '_blank');
     if (!printWindow) {
@@ -4179,7 +4354,7 @@ const Reports = {
             <div class="box-num">${totalEstoqueGeral.toFixed(2)} KG</div>
           </div>
           <div class="box ${lowCount > 0 ? 'box-danger' : ''}">
-            <div>Tintas com Estoque Baixo (≤ 10 kg)</div>
+            <div>Tintas com Estoque Baixo (no mínimo ou abaixo)</div>
             <div class="box-num">${lowCount} Tinta(s)</div>
           </div>
         </div>
@@ -4203,8 +4378,8 @@ const Reports = {
                 <td>${esc(p.name)}</td>
                 <td>${esc(p.type)} - ${esc(p.finish)}</td>
                 <td>${esc(p.batch || '-')}</td>
-                <td class="num">${p.stockKg.toFixed(2)} kg</td>
-                <td style="text-align: center;">${p.isLowStock ? '⚠️ CRÍTICO (≤ 10kg)' : '✓ NORMAL'}</td>
+                <td class="num">${kg(p.stockKg)} kg</td>
+                <td style="text-align: center;">${p.isLowStock ? '⚠️ BAIXO (no mínimo)' : '✓ NORMAL'}</td>
                 <td class="num">${p.totalConsumidoKg.toFixed(2)} kg</td>
               </tr>
             `).join('')}
@@ -4315,12 +4490,12 @@ const PrintOS = {
           <div class="pos-cura-params-grid">
             <div class="pos-cura-param-card">
               <div class="pos-cura-param-title">🌡️ TEMPERATURA DE CURA</div>
-              <div class="pos-cura-big-value">${order.cureTempC || 200} °C</div>
+              <div class="pos-cura-big-value">${parseInt(order.cureTempC, 10) || 200} °C</div>
               <div class="pos-cura-instruction">CONFERIR TERMÔMETRO NA PEÇA</div>
             </div>
             <div class="pos-cura-param-card">
               <div class="pos-cura-param-title">⏱️ TEMPO DE PERMANÊNCIA</div>
-              <div class="pos-cura-big-value">${order.cureTimeMin || 15} MIN</div>
+              <div class="pos-cura-big-value">${parseInt(order.cureTimeMin, 10) || 15} MIN</div>
               <div class="pos-cura-instruction">CONTAR A PARTIR DO PICO DE TEMP.</div>
             </div>
           </div>
@@ -4652,8 +4827,8 @@ const App = {
   onSyncRejected(e) {
     this.showToast(
       e.json && e.json.conflict
-        ? 'Outra pessoa alterou este registro ao mesmo tempo. Os dados foram atualizados — confira e repita a operação.'
-        : ('Não foi possível salvar: ' + e.message),
+        ? 'Outra pessoa alterou este registro ao mesmo tempo. Os dados foram atualizados — veja no Painel o que não foi salvo e repita.'
+        : ('Não foi possível salvar: ' + e.message + ' (a lista fica no Painel)'),
       'danger');
     this.onDataChanged(true);
   },
@@ -4663,7 +4838,7 @@ const App = {
     if (!Auth.isLoggedIn()) return;
     Auth.updateUI();
     const ae = document.activeElement;
-    const typing = ae && /^(INPUT|TEXTAREA|SELECT)$/.test(ae.tagName) && !ae.closest('.modal-overlay, .modal');
+    const typing = ae && /^(INPUT|TEXTAREA|SELECT)$/.test(ae.tagName) && !ae.closest('.modal-backdrop');
     if (typing && !force) { this._dirtyView = true; return; }
     this._dirtyView = false;
     this.renderCurrentView();
@@ -4784,8 +4959,8 @@ const App = {
         </div>
         ${isAdm ? `
           <div class="user-row-actions">
-            <button class="btn btn-sm btn-outline" onclick="App.resetUserPassword('${u.id}')">Redefinir senha</button>
-            ${u.id !== me.id ? `<button class="btn btn-sm btn-outline" style="color:#dc2626;" onclick="App.deleteUserConfirm('${u.id}')">Excluir</button>` : ''}
+            <button class="btn btn-sm btn-outline" onclick="App.resetUserPassword('${jid(u.id)}')">Redefinir senha</button>
+            ${u.id !== me.id ? `<button class="btn btn-sm btn-outline" style="color:#dc2626;" onclick="App.deleteUserConfirm('${jid(u.id)}')">Excluir</button>` : ''}
           </div>` : ''}
       </div>
     `).join('');
@@ -4838,7 +5013,7 @@ const App = {
     // Atualiza título da topbar
     const titleEl = document.getElementById('topbar-title');
     const titles = {
-      'dashboard': 'Painel Inicial',
+      'dashboard': 'Painel de Produção',
       'os': 'Ordens de Serviço',
       'estoque': 'Estoque de Tintas',
       'clientes': 'Clientes',
@@ -4881,73 +5056,303 @@ const App = {
      ========================================================================== */
   renderDashboard() {
     const orders = OS.getAll();
-    const paints = Inventory.getAll();
     const lowStockPaints = Inventory.getLowStockPaints();
+    const today = Util.today();
+    const month = today.slice(0, 7);
+    const localDay = (v) => {
+      if (!v) return '';
+      const d = new Date(v);
+      if (isNaN(d)) return String(v).slice(0, 10);
+      return `${d.getFullYear()}-${Util.pad(d.getMonth() + 1)}-${Util.pad(d.getDate())}`;
+    };
+    const byEntry = (a, b) => String(a.entryDate || a.createdAt || '').localeCompare(String(b.entryDate || b.createdAt || ''));
+    const aguardando = orders.filter(o => o.status === 'AGUARDANDO').sort(byEntry);
+    const producao = orders.filter(o => o.status === 'EM PRODUÇÃO').sort(byEntry);
+    const concluidas = orders.filter(o => o.status === 'CONCLUÍDO')
+      .sort((a, b) => String(b.updatedAt || b.createdAt || '').localeCompare(String(a.updatedAt || a.createdAt || '')));
+    const hoje = concluidas.filter(o => localDay(o.updatedAt) === today);
+    const avisadasHoje = hoje.filter(o => String(o.notifiedAt || '').slice(0, 10) === today).length;
+    const consumoMes = orders
+      .filter(o => (o.entryDate ? String(o.entryDate).slice(0, 7) : localDay(o.createdAt).slice(0, 7)) === month)
+      .reduce((sum, o) => sum + (parseFloat(o.qtyConsumoLiquidoKg) || 0), 0);
 
-    // KPIs
-    const emProducaoCount = orders.filter(o => o.status === 'EM PRODUÇÃO').length;
-    const aguardandoCount = orders.filter(o => o.status === 'AGUARDANDO').length;
-    const concluidasCount = orders.filter(o => o.status === 'CONCLUÍDO').length;
-    
-    const totalConsumoGeral = orders.reduce((sum, o) => sum + (parseFloat(o.qtyConsumoLiquidoKg) || 0), 0);
+    const setText = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+    setText('kpi-os-aguardando', aguardando.length);
+    setText('kpi-os-producao', producao.length);
+    setText('kpi-os-concluidas-hoje', hoje.length);
+    setText('kpi-os-avisadas', `${avisadasHoje} cliente(s) avisado(s)`);
+    setText('kpi-consumo-total', `${kg(consumoMes, 1)} kg`);
+    setText('kpi-estoque-critico', lowStockPaints.length);
 
-    document.getElementById('kpi-os-producao').textContent = emProducaoCount;
-    document.getElementById('kpi-os-aguardando').textContent = aguardandoCount;
-    document.getElementById('kpi-estoque-critico').textContent = lowStockPaints.length;
-    document.getElementById('kpi-consumo-total').textContent = `${totalConsumoGeral.toFixed(1)} kg`;
-
-    // Alerta de estoque baixo no dashboard
+    // Alerta de estoque baixo
     const alertBox = document.getElementById('dashboard-stock-alert-container');
     if (alertBox) {
       if (lowStockPaints.length > 0) {
         alertBox.innerHTML = `
-          <div class="alert-card-danger">
+          <div class="alert-card-danger" role="status">
             <div class="alert-message-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5">
+              <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5">
                 <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
-                <line x1="12" y1="9" x2="12" y2="13"/>
-                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
               </svg>
               <div>
-                <div class="alert-title">ATENÇÃO: ${lowStockPaints.length} TINTA(S) COM ESTOQUE BAIXO (≤ 10 KG)!</div>
-                <div class="alert-desc">
-                  As seguintes tintas precisam de reposição urgente: 
-                  <strong>${lowStockPaints.map(p => `${esc(p.code)} (${p.stockKg.toFixed(2)}kg)`).join(', ')}</strong>.
-                </div>
+                <div class="alert-title">${lowStockPaints.length} tinta(s) no estoque mínimo ou abaixo</div>
+                <div class="alert-desc"><strong>${lowStockPaints.map(p => `${esc(p.code)} ${esc(p.name)} (${kg(p.stockKg, 1)} kg)`).join(' · ')}</strong></div>
               </div>
             </div>
-            <button class="btn btn-sm btn-danger" onclick="App.switchView('estoque')">Ver Estoque</button>
-          </div>
-        `;
+            <button class="btn btn-sm btn-danger" onclick="App.switchView('estoque')">Ver estoque</button>
+          </div>`;
         alertBox.style.display = 'block';
       } else {
+        alertBox.innerHTML = '';
         alertBox.style.display = 'none';
       }
     }
 
-    // Tabela das OS recentes no Painel Inicial
-    const tbody = document.getElementById('dashboard-os-table-body');
-    if (!tbody) return;
+    this.renderRejectedBox();
+    this.renderBoardColumn('aguardando', aguardando, 'Nenhuma OS na fila.');
+    this.renderBoardColumn('producao', producao, 'Nada em produção agora.');
+    this.renderBoardColumn('concluido', concluidas, 'Nenhuma OS concluída ainda.', 8);
+    this.renderStockBars();
+  },
 
-    if (orders.length === 0) {
-      tbody.innerHTML = `
-        <tr>
-          <td colspan="8" class="empty-state">
-            <h4>Nenhuma Ordem de Serviço encontrada</h4>
-            <p>Clique em "+ Nova Ordem de Serviço" para iniciar.</p>
-          </td>
-        </tr>
-      `;
-      return;
+  renderBoardColumn(key, list, emptyText, limit) {
+    const el = document.getElementById('board-col-' + key);
+    const count = document.getElementById('board-count-' + key);
+    if (count) count.textContent = list.length;
+    if (!el) return;
+    if (!list.length) { el.innerHTML = `<div class="board-empty">${esc(emptyText)}</div>`; return; }
+    const shown = limit ? list.slice(0, limit) : list;
+    let html = shown.map(os => this.osCardHtml(os)).join('');
+    if (limit && list.length > limit) {
+      html += `<div class="board-more"><button type="button" class="btn btn-sm btn-outline" onclick="App.showAllConcluded()">Ver as outras ${list.length - limit}</button></div>`;
     }
+    el.innerHTML = `<div style="display:flex; flex-direction:column; gap:10px;">${html}</div>`;
+  },
 
-    // Prioriza OS em produção e aguardando
-    const sorted = [...orders].sort((a, b) => {
-      const orderWeight = { 'EM PRODUÇÃO': 1, 'AGUARDANDO': 2, 'CONCLUÍDO': 3, 'CANCELADO': 4 };
-      return (orderWeight[a.status] || 99) - (orderWeight[b.status] || 99);
+  showAllConcluded() {
+    this.switchView('os');
+    const f = document.getElementById('filter-os-status');
+    if (f) { f.value = 'CONCLUÍDO'; this.renderOSList(); }
+  },
+
+  // Botão principal conforme a etapa da OS (usado no quadro e na lista)
+  osMainActionHtml(os, extraClass = '', compact = false) {
+    const id = jid(os.id);
+    if (os.status === 'AGUARDANDO') return `<button type="button" class="btn btn-sm btn-secondary ${extraClass}" onclick="App.quickStatus('${id}', 'EM PRODUÇÃO')">▶ Iniciar</button>`;
+    if (os.status === 'EM PRODUÇÃO') return `<button type="button" class="btn btn-sm btn-success ${extraClass}" onclick="App.quickStatus('${id}', 'CONCLUÍDO')">✔ Concluir</button>`;
+    if (os.status === 'CONCLUÍDO') {
+      return os.notifiedAt
+        ? `<button type="button" class="btn btn-sm btn-outline ${extraClass}" onclick="App.openWhatsApp('${id}')" title="Cliente avisado em ${esc(os.notifiedAt)}">Avisado ✓ · de novo</button>`
+        : `<button type="button" class="btn btn-sm btn-wa ${extraClass}" onclick="App.openWhatsApp('${id}')">${compact ? 'Avisar' : 'Avisar no WhatsApp'}</button>`;
+    }
+    return '';
+  },
+
+  osCardHtml(os) {
+    const id = jid(os.id);
+    const paint = os.paintId ? Inventory.getById(os.paintId) : null;
+    const preps = [os.cleaningManual && 'Limpeza manual', os.cleaningJateamento && 'Jateamento', os.cleaningBanhoQuimico && 'Banho químico'].filter(Boolean);
+    let prep = preps.length ? preps.join(' + ') + ' ✓' : 'Limpeza pendente';
+    if (preps.length && os.cleaningColaborador) prep += ' · ' + os.cleaningColaborador;
+    const cons = parseFloat(os.qtyConsumoLiquidoKg) || 0;
+    if (cons > 0) prep += ` · consumo ${kg(cons)} kg`;
+    const paintTxt = os.paintId
+      ? `${paint && paint.code ? `<code>${esc(paint.code)}</code>` : ''}${esc(os.paintName || (paint && paint.name) || '')}`
+      : 'Tinta não selecionada';
+    return `
+      <article class="os-card">
+        <button type="button" class="os-card-open" onclick="App.openFicha('${id}')" aria-label="Abrir ficha da ${esc(os.osNumber)}">
+          <span class="os-card-top"><span class="os-card-num">${esc(os.osNumber)}</span><span class="os-card-nf">${esc(os.nfNumber || 'Sem NF')}</span></span>
+          <span class="os-card-client">${esc(os.clientName || 'Cliente não informado')}</span>
+          <span class="os-card-paint">${paintTxt}</span>
+          <span class="os-card-cure">
+            <span><small>TEMPERATURA</small><strong>${parseInt(os.cureTempC, 10) || 200} °C</strong></span>
+            <span><small>TEMPO</small><strong>${parseInt(os.cureTimeMin, 10) || 15} min</strong></span>
+          </span>
+          <span class="os-card-prep">${esc(prep)}</span>
+        </button>
+        <div class="os-card-actions">
+          ${this.osMainActionHtml(os, 'btn-main')}
+          <button type="button" class="btn btn-sm btn-outline" onclick="App.openApontamentoModal('${id}')">Balança</button>
+          <button type="button" class="btn btn-sm btn-outline btn-more" aria-haspopup="menu" aria-label="Mais ações da ${esc(os.osNumber)}" onclick="App.openRowMenu(event, '${id}')">⋯</button>
+        </div>
+      </article>`;
+  },
+
+  renderStockBars() {
+    const el = document.getElementById('dashboard-stock-bars');
+    if (!el) return;
+    const paints = [...Inventory.getAll()];
+    if (!paints.length) { el.innerHTML = '<div class="board-empty">Nenhuma tinta cadastrada.</div>'; return; }
+    const minOf = p => parseFloat(p.minStockKg) > 0 ? parseFloat(p.minStockKg) : Inventory.LOW_STOCK_THRESHOLD;
+    const ratio = p => (parseFloat(p.stockKg) || 0) / minOf(p);
+    paints.sort((a, b) => ratio(a) - ratio(b));        // as mais perto de acabar primeiro
+    const rows = paints.slice(0, 8).map(p => {
+      const low = Inventory.isLow(p);
+      const pct = Math.max(3, Math.min(100, Math.round(ratio(p) / 3 * 100)));   // barra cheia = 3x o mínimo
+      return `
+        <div class="stock-bar-row">
+          <div class="stock-bar-top"><span>${esc(p.code)} ${esc(p.name)}</span><strong class="${low ? 'low' : ''}">${kg(p.stockKg, 1)} kg</strong></div>
+          <div class="stock-bar" role="img" aria-label="${esc(p.code)}: ${kg(p.stockKg, 1)} kg de ${kg(minOf(p), 1)} kg mínimos"><span class="${low ? 'low' : ''}" style="width:${pct}%"></span></div>
+          <div class="stock-bar-min">Mínimo ${kg(minOf(p), 1)} kg${low ? ' · repor' : ''}</div>
+        </div>`;
+    }).join('');
+    const more = paints.length > 8 ? `<div class="stock-bar-min">+ ${paints.length - 8} tinta(s) com saldo folgado</div>` : '';
+    el.innerHTML = `<div style="display:flex; flex-direction:column; gap:14px;">${rows}${more}</div>`;
+  },
+
+  renderRejectedBox() {
+    const box = document.getElementById('dashboard-rejected-box');
+    if (!box) return;
+    const list = Storage.rejected();
+    if (!list.length) { box.innerHTML = ''; return; }
+    box.innerHTML = `
+      <div class="rejected-box" role="status">
+        <strong>Alterações feitas neste aparelho que NÃO foram salvas</strong>
+        (outra pessoa mexeu no mesmo registro ao mesmo tempo, ou faltou permissão). Confira e lance de novo:
+        ${list.slice(0, 5).map(g => `
+          <div style="margin-top:8px; font-size:0.78rem;">${esc(g.at)}${g.why ? ' — ' + esc(g.why) : ''}</div>
+          <ul>${g.items.map(i => `<li>${esc(i)}</li>`).join('')}</ul>`).join('')}
+        <button type="button" class="btn btn-sm btn-outline" onclick="App.dismissRejected()">Já conferi, apagar este aviso</button>
+      </div>`;
+  },
+
+  dismissRejected() { Storage.clearRejected(); this.renderRejectedBox(); },
+
+  /* ---------- Menu "⋯" ---------- */
+  openRowMenu(ev, id) {
+    if (ev) ev.stopPropagation();
+    const os = OS.getById(id);
+    const menu = document.getElementById('row-menu');
+    if (!os || !menu) return;
+    const items = [
+      ['Abrir ficha da OS', () => this.openFicha(id)],
+      ['Imprimir / PDF', () => PrintOS.openPreview(id)],
+      ['Editar OS completa', () => this.openEditOSModal(id)]
+    ];
+    if (os.status === 'CONCLUÍDO') items.push(['Avisar cliente no WhatsApp', () => this.openWhatsApp(id)]);
+    if (Auth.isAdmin()) items.push(['Excluir OS', () => this.deleteOS(id), 'danger']);
+    menu.replaceChildren();
+    items.forEach(([label, fn, cls]) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('role', 'menuitem');
+      b.textContent = label;
+      if (cls) b.className = cls;
+      b.addEventListener('click', (e) => { e.stopPropagation(); this.closeRowMenu(); fn(); });
+      menu.appendChild(b);
     });
+    menu.classList.add('open');
+    const anchor = ev && ev.currentTarget ? ev.currentTarget : null;
+    const r = anchor ? anchor.getBoundingClientRect() : { right: window.innerWidth / 2, bottom: window.innerHeight / 2, top: window.innerHeight / 2 };
+    const w = menu.offsetWidth, h = menu.offsetHeight;
+    const left = Math.max(8, Math.min(window.innerWidth - w - 8, r.right - w));
+    let top = r.bottom + 4;
+    if (top + h > window.innerHeight - 8) top = Math.max(8, r.top - h - 4);
+    menu.style.left = left + 'px';
+    menu.style.top = top + 'px';
+    this._menuAnchor = anchor;
+    const first = menu.querySelector('button');
+    if (first) first.focus();
+  },
 
-    tbody.innerHTML = sorted.map(os => this.createOSTableRow(os)).join('');
+  closeRowMenu(returnFocus) {
+    const menu = document.getElementById('row-menu');
+    if (!menu || !menu.classList.contains('open')) return;
+    menu.classList.remove('open');
+    if (returnFocus && this._menuAnchor && document.body.contains(this._menuAnchor)) this._menuAnchor.focus();
+  },
+
+  /* ---------- Ficha da OS (tela do operador) ---------- */
+  openFicha(id) {
+    const os = OS.getById(id);
+    if (!os) return;
+    const $ = (x) => document.getElementById(x);
+    $('ficha-id').value = os.id;
+    $('ficha-title').textContent = os.osNumber || 'OS';
+    $('ficha-status').textContent = `${os.status || ''}${os.nfNumber ? ' · ' + os.nfNumber : ''}`;
+    $('ficha-client').textContent = os.clientName || 'Cliente não informado';
+    const paint = os.paintId ? Inventory.getById(os.paintId) : null;
+    $('ficha-paint').textContent = os.paintId ? `${paint && paint.code ? paint.code + ' · ' : ''}${os.paintName || (paint && paint.name) || ''}` : 'Tinta não selecionada';
+    $('ficha-temp').textContent = `${parseInt(os.cureTempC, 10) || 200} °C`;
+    $('ficha-time').textContent = `${parseInt(os.cureTimeMin, 10) || 15} min`;
+    $('ficha-chk-manual').checked = !!os.cleaningManual;
+    $('ficha-chk-jateamento').checked = !!os.cleaningJateamento;
+    $('ficha-chk-banho').checked = !!os.cleaningBanhoQuimico;
+    $('ficha-colaborador').value = os.cleaningColaborador || '';
+    $('ficha-datahora').value = os.cleaningDateTime || '';
+    $('ficha-retirada').value = kg(os.qtyRetiradaKg);
+    $('ficha-devolvida').value = kg(os.qtyDevolvidaKg);
+    const adv = $('ficha-advance');
+    if (os.status === 'AGUARDANDO') { adv.style.display = ''; adv.textContent = 'Salvar e iniciar'; }
+    else if (os.status === 'EM PRODUÇÃO') { adv.style.display = ''; adv.textContent = 'Salvar e concluir'; }
+    else adv.style.display = 'none';
+    this.recalcFicha();
+    this.openModal('modal-ficha');
+  },
+
+  fichaCleaningChanged(ev) {
+    if (!ev.target.checked) return;
+    const col = document.getElementById('ficha-colaborador');
+    const dh = document.getElementById('ficha-datahora');
+    const me = Auth.getCurrentUser();
+    if (!col.value.trim() && me) col.value = me.name;
+    if (!dh.value.trim()) {
+      const d = new Date();
+      dh.value = `${Util.pad(d.getDate())}/${Util.pad(d.getMonth() + 1)}/${d.getFullYear()} às ${Util.pad(d.getHours())}:${Util.pad(d.getMinutes())}`;
+    }
+  },
+
+  recalcFicha() {
+    const os = OS.getById(document.getElementById('ficha-id').value);
+    const ret = parseFloat(document.getElementById('ficha-retirada').value) || 0;
+    const dev = parseFloat(document.getElementById('ficha-devolvida').value) || 0;
+    const liq = Math.max(0, ret - dev);
+    document.getElementById('ficha-liquido').textContent = `${kg(liq)} kg`;
+    const after = document.getElementById('ficha-after');
+    const paint = os && os.paintId ? Inventory.getById(os.paintId) : null;
+    if (!paint) { after.textContent = os && os.paintId ? '' : 'Escolha a tinta em "Editar OS completa" para baixar o estoque.'; return; }
+    const saldo = Math.max(0, (parseFloat(paint.stockKg) || 0) - (liq - (parseFloat(os.qtyConsumoLiquidoKg) || 0)));
+    const min = parseFloat(paint.minStockKg) > 0 ? parseFloat(paint.minStockKg) : Inventory.LOW_STOCK_THRESHOLD;
+    after.innerHTML = `Saldo da tinta depois de salvar: <strong class="${saldo <= min ? 'low' : ''}">${kg(saldo)} kg${saldo <= min ? ' (no mínimo ou abaixo)' : ''}</strong>`;
+  },
+
+  fichaPrint() {
+    const id = document.getElementById('ficha-id').value;
+    this.closeModal('modal-ficha');
+    PrintOS.openPreview(id);
+  },
+
+  saveFicha(advance) {
+    const id = document.getElementById('ficha-id').value;
+    const os = OS.getById(id);
+    if (!os) return;
+    let status = os.status;
+    if (advance) {
+      if (os.status === 'AGUARDANDO') status = 'EM PRODUÇÃO';
+      else if (os.status === 'EM PRODUÇÃO') status = 'CONCLUÍDO';
+    }
+    if (status === 'CONCLUÍDO' && os.status !== 'CONCLUÍDO' && !confirm(`Marcar a ${os.osNumber} como CONCLUÍDA?`)) return;
+    const data = {
+      ...os,
+      status,
+      cleaningManual: document.getElementById('ficha-chk-manual').checked,
+      cleaningJateamento: document.getElementById('ficha-chk-jateamento').checked,
+      cleaningBanhoQuimico: document.getElementById('ficha-chk-banho').checked,
+      cleaningColaborador: document.getElementById('ficha-colaborador').value.trim(),
+      cleaningDateTime: document.getElementById('ficha-datahora').value.trim(),
+      qtyRetiradaKg: parseFloat(document.getElementById('ficha-retirada').value) || 0,
+      qtyDevolvidaKg: parseFloat(document.getElementById('ficha-devolvida').value) || 0
+    };
+    const res = OS.save(data);
+    if (!res.success) { this.showToast(res.message || 'Erro ao salvar.', 'danger'); return; }
+    this.closeModal('modal-ficha');
+    this.renderCurrentView();
+    Inventory.checkLowStockAlerts();
+    this.showToast(`${os.osNumber} salva${status !== os.status ? ': ' + status : ''}.`, 'success');
+    if (res.warning) this.showToast(res.warning, 'warning');
+    if (status === 'CONCLUÍDO' && os.status !== 'CONCLUÍDO' && confirm('OS concluída! Avisar o cliente pelo WhatsApp agora?')) this.openWhatsApp(id);
   },
 
   /* ==========================================================================
@@ -5017,9 +5422,9 @@ const App = {
         </td>
         <td>
           <div class="cura-mini-badge" title="Parâmetros de cura da estufa">
-            <span>🌡️ <strong>${os.cureTempC || 200}°C</strong></span>
+            <span>🌡️ <strong>${parseInt(os.cureTempC, 10) || 200}°C</strong></span>
             <span>•</span>
-            <span>⏱️ <strong>${os.cureTimeMin || 15} min</strong></span>
+            <span>⏱️ <strong>${parseInt(os.cureTimeMin, 10) || 15} min</strong></span>
           </div>
         </td>
         <td>
@@ -5040,39 +5445,14 @@ const App = {
         </td>
         <td>
           <span class="status-pill ${statusClasses[os.status] || 'status-pill-aguardando'}">
-            ${os.status}
+            ${esc(os.status)}
           </span>
         </td>
         <td>
           <div class="actions-cell">
-            ${os.status === 'AGUARDANDO' ? `<button class="btn btn-sm btn-primary" onclick="App.quickStatus('${os.id}', 'EM PRODUÇÃO')" title="Iniciar produção">▶ Iniciar</button>` : ''}
-            ${os.status === 'EM PRODUÇÃO' ? `<button class="btn btn-sm btn-success" onclick="App.quickStatus('${os.id}', 'CONCLUÍDO')" title="Concluir OS">✔ Concluir</button>` : ''}
-            ${os.status === 'CONCLUÍDO' ? `<button class="btn btn-sm btn-success" onclick="App.openWhatsApp('${os.id}')" title="${os.notifiedAt ? 'Cliente avisado em ' + esc(os.notifiedAt) : 'Avisar cliente pelo WhatsApp'}">📲 ${os.notifiedAt ? 'Avisar de novo' : 'Avisar cliente'}</button>` : ''}
-            <button class="btn btn-sm btn-outline" onclick="PrintOS.openPreview('${os.id}')" title="Visualizar & Imprimir PDF da OS">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 6 2 18 2 18 9"/>
-                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
-                <rect x="6" y="14" width="12" height="8"/>
-              </svg>
-              PDF
-            </button>
-            <button class="btn btn-sm btn-outline" onclick="App.openApontamentoModal('${os.id}')" title="Apontar Consumo de Tinta da Balança">
-              ⚖️ Balança
-            </button>
-            <button class="btn btn-sm btn-outline btn-icon" onclick="App.openEditOSModal('${os.id}')" title="Editar OS">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-              </svg>
-            </button>
-            ${Auth.isAdmin() ? `
-              <button class="btn btn-sm btn-outline btn-icon" style="color: #dc2626;" onclick="App.deleteOS('${os.id}')" title="Excluir OS (ADM)">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="3 6 5 6 21 6"/>
-                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-                </svg>
-              </button>
-            ` : ''}
+            ${this.osMainActionHtml(os, '', true)}
+            <button type="button" class="btn btn-sm btn-outline" onclick="App.openApontamentoModal('${jid(os.id)}')" title="Apontar consumo de tinta da balança">Balança</button>
+            <button type="button" class="btn btn-sm btn-outline btn-more" aria-haspopup="menu" aria-label="Mais ações da ${esc(os.osNumber)}" onclick="App.openRowMenu(event, '${jid(os.id)}')">⋯</button>
           </div>
         </td>
       </tr>
@@ -5122,7 +5502,7 @@ const App = {
           </td>
           <td>
             <div style="font-size: 0.8rem; font-weight: 700; color: #713f12;">
-              🌡️ ${paint.defaultTempC || 200}°C / ⏱️ ${paint.defaultTimeMin || 15} min
+              🌡️ ${parseInt(paint.defaultTempC, 10) || 200}°C / ⏱️ ${parseInt(paint.defaultTimeMin, 10) || 15} min
             </div>
           </td>
           <td>
@@ -5138,10 +5518,10 @@ const App = {
           <td>
             <div class="actions-cell">
               ${Auth.isAdmin() ? `
-                <button class="btn btn-sm btn-outline" onclick="App.openStockMovementModal('${paint.id}')" title="Entrada / Ajuste de Estoque">
+                <button class="btn btn-sm btn-outline" onclick="App.openStockMovementModal('${jid(paint.id)}')" title="Entrada / Ajuste de Estoque">
                   ➕ Movimentar
                 </button>
-                <button class="btn btn-sm btn-outline btn-icon" onclick="App.openEditPaintModal('${paint.id}')" title="Editar Tinta">
+                <button class="btn btn-sm btn-outline btn-icon" onclick="App.openEditPaintModal('${jid(paint.id)}')" title="Editar Tinta">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
                     <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
@@ -5180,9 +5560,9 @@ const App = {
 
     tbody.innerHTML = movements.slice(0, 20).map(m => `
       <tr>
-        <td style="font-size: 0.8rem; font-family: var(--font-mono);">${m.date}</td>
+        <td style="font-size: 0.8rem; font-family: var(--font-mono);">${esc(m.date)}</td>
         <td><strong>${esc(m.paintName)}</strong></td>
-        <td>${typeBadges[m.type] || m.type}</td>
+        <td>${typeBadges[m.type] || esc(m.type)}</td>
         <td style="font-family: var(--font-mono); font-weight: 700; text-align: right;">
           ${(parseFloat(m.qtyKg) || 0).toFixed(2)} kg
         </td>
@@ -5223,14 +5603,14 @@ const App = {
         <td>${esc(client.city || '-')}</td>
         <td>
           <div class="actions-cell">
-            <button class="btn btn-sm btn-outline btn-icon" onclick="App.openEditClientModal('${client.id}')" title="Editar Cliente">
+            <button class="btn btn-sm btn-outline btn-icon" onclick="App.openEditClientModal('${jid(client.id)}')" title="Editar Cliente">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
                 <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
               </svg>
             </button>
             ${Auth.isAdmin() ? `
-              <button class="btn btn-sm btn-outline btn-icon" style="color: #dc2626;" onclick="App.deleteClient('${client.id}')" title="Excluir Cliente">
+              <button class="btn btn-sm btn-outline btn-icon" style="color: #dc2626;" onclick="App.deleteClient('${jid(client.id)}')" title="Excluir Cliente">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <polyline points="3 6 5 6 21 6"/>
                   <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
@@ -5258,7 +5638,7 @@ const App = {
         <td>${esc(item.type)} (${esc(item.finish)})</td>
         <td style="font-family: var(--font-mono);">${esc(item.batch || '-')}</td>
         <td style="font-family: var(--font-mono); font-weight: 800; font-size: 1.05rem; text-align: right; color: ${item.isLowStock ? '#dc2626' : '#0f172a'};">
-          ${item.stockKg.toFixed(2)} kg
+          ${kg(item.stockKg)} kg
         </td>
         <td style="text-align: center;">
           <span class="status-pill ${item.isLowStock ? 'status-pill-critico' : 'status-pill-normal'}">
@@ -5402,6 +5782,7 @@ const App = {
     document.getElementById('form-os').reset();
     document.getElementById('os-form-id').value = '';
     document.getElementById('os-form-number').value = OS.generateNextNumber();
+    document.getElementById('os-form-number').dataset.suggested = document.getElementById('os-form-number').value;
     document.getElementById('os-form-nf').value = '';
     document.getElementById('os-form-date').value = Util.today();
     document.getElementById('os-form-status').value = 'AGUARDANDO';
@@ -5428,6 +5809,7 @@ const App = {
 
     document.getElementById('os-form-id').value = order.id;
     document.getElementById('os-form-number').value = order.osNumber;
+    document.getElementById('os-form-number').dataset.suggested = '';
     document.getElementById('os-form-nf').value = order.nfNumber || '';
     document.getElementById('os-form-date').value = order.entryDate || '';
     document.getElementById('os-form-status').value = order.status || 'EM PRODUÇÃO';
@@ -5456,7 +5838,7 @@ const App = {
 
     const clients = Clients.getAll();
     select.innerHTML = '<option value="">-- Selecione o Cliente --</option>' + 
-      clients.map(c => `<option value="${c.id}" ${c.id === selectedId ? 'selected' : ''}>${esc(c.name)}</option>`).join('');
+      clients.map(c => `<option value="${esc(c.id)}" ${c.id === selectedId ? 'selected' : ''}>${esc(c.name)}</option>`).join('');
   },
 
   populatePaintSelect(selectedId = '') {
@@ -5467,8 +5849,8 @@ const App = {
     select.innerHTML = '<option value="">-- Selecione a Cor / Tinta --</option>' + 
       paints.map(p => {
         const isCritical = Inventory.isLow(p);
-        const alertTag = isCritical ? ' ⚠️ [ESTOQUE BAIXO: ' + p.stockKg.toFixed(1) + 'kg]' : ` [Saldo: ${p.stockKg.toFixed(1)}kg]`;
-        return `<option value="${p.id}" data-temp="${p.defaultTempC||200}" data-time="${p.defaultTimeMin||15}" ${p.id === selectedId ? 'selected' : ''}>
+        const alertTag = isCritical ? ' ⚠️ [ESTOQUE BAIXO: ' + kg(p.stockKg, 1) + 'kg]' : ` [Saldo: ${kg(p.stockKg, 1)}kg]`;
+        return `<option value="${esc(p.id)}" data-temp="${parseInt(p.defaultTempC, 10) || 200}" data-time="${parseInt(p.defaultTimeMin, 10) || 15}" ${p.id === selectedId ? 'selected' : ''}>
           ${esc(p.code)} - ${esc(p.name)}${alertTag}
         </option>`;
       }).join('');
@@ -5521,7 +5903,7 @@ const App = {
 
     const paints = Inventory.getAll();
     const select = document.getElementById('mov-paint-select');
-    select.innerHTML = paints.map(p => `<option value="${p.id}" ${p.id === paintId ? 'selected' : ''}>${esc(p.code)} - ${esc(p.name)} (Atual: ${p.stockKg.toFixed(2)} kg)</option>`).join('');
+    select.innerHTML = paints.map(p => `<option value="${esc(p.id)}" ${p.id === paintId ? 'selected' : ''}>${esc(p.code)} - ${esc(p.name)} (Atual: ${kg(p.stockKg)} kg)</option>`).join('');
 
     document.getElementById('mov-qty').value = '';
     document.getElementById('mov-notes').value = '';
@@ -5540,7 +5922,7 @@ const App = {
     if (res.success) {
       this.closeModal('modal-stock-movement');
       this.renderCurrentView();
-      this.showToast(`Estoque atualizado! Novo saldo: ${res.paint.stockKg.toFixed(2)} kg`, 'success');
+      this.showToast(`Estoque atualizado! Novo saldo: ${kg(res.paint.stockKg)} kg`, 'success');
     } else {
       this.showToast(res.message, 'danger');
     }
@@ -5675,7 +6057,8 @@ const App = {
 
         const osData = {
           id: document.getElementById('os-form-id').value || undefined,
-          osNumber: document.getElementById('os-form-number').value,
+          osNumber: document.getElementById('os-form-number').value.trim(),
+          _suggested: document.getElementById('os-form-number').dataset.suggested || '',
           nfNumber: document.getElementById('os-form-nf').value,
           clientId: clientSelect.value,
           clientName: (Clients.getById(clientSelect.value) || {}).name || '',
@@ -5700,7 +6083,7 @@ const App = {
           this.closeModal('modal-os-form');
           this.renderCurrentView();
           Inventory.checkLowStockAlerts();
-          this.showToast(`Ordem de Serviço ${osData.osNumber} salva com sucesso!`, 'success');
+          this.showToast(`Ordem de Serviço ${res.order.osNumber} salva com sucesso!`, 'success');
           if (res.warning) this.showToast(res.warning, 'warning');
         } else {
           this.showToast(res.message || 'Erro ao salvar OS', 'danger');
@@ -5768,6 +6151,21 @@ const App = {
     document.getElementById('search-paint-input')?.addEventListener('input', () => this.renderInventory());
     document.getElementById('search-clients-input')?.addEventListener('input', () => this.renderClients());
 
+    // Menu "⋯": fecha ao clicar fora, Esc ou rolar a tela
+    document.addEventListener('click', (e) => { if (!e.target.closest('#row-menu')) this.closeRowMenu(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') this.closeRowMenu(true); });
+    window.addEventListener('scroll', () => this.closeRowMenu(), { passive: true, capture: true });
+
+    // Ficha da OS
+    ['ficha-retirada', 'ficha-devolvida'].forEach(fid => document.getElementById(fid)?.addEventListener('input', () => this.recalcFicha()));
+    ['ficha-chk-manual', 'ficha-chk-jateamento', 'ficha-chk-banho'].forEach(fid => document.getElementById(fid)?.addEventListener('change', (e) => this.fichaCleaningChanged(e)));
+
+    // Chegaram dados novos enquanto a pessoa digitava: redesenha quando ela sair do campo
+    document.addEventListener('focusout', () => setTimeout(() => {
+      const ae = document.activeElement;
+      if (this._dirtyView && !(ae && /^(INPUT|TEXTAREA|SELECT)$/.test(ae.tagName))) this.onDataChanged(true);
+    }, 60));
+
     // Botão de confirmação de impressão na prévia
     document.getElementById('btn-confirm-print')?.addEventListener('click', () => {
       const orderId = document.getElementById('btn-confirm-print').dataset.orderId;
@@ -5783,10 +6181,15 @@ const App = {
 
     const toast = document.createElement('div');
     toast.className = `toast toast-${type}`;
-    toast.innerHTML = `
-      <span>${message}</span>
-      <button class="toast-close" onclick="this.parentElement.remove()">✕</button>
-    `;
+    const span = document.createElement('span');
+    span.textContent = message;               // texto puro: nunca interpreta HTML
+    const close = document.createElement('button');
+    close.className = 'toast-close';
+    close.setAttribute('aria-label', 'Fechar aviso');
+    close.textContent = '✕';
+    close.addEventListener('click', () => toast.remove());
+    toast.appendChild(span);
+    toast.appendChild(close);
 
     container.appendChild(toast);
     setTimeout(() => {

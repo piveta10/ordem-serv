@@ -7,7 +7,7 @@ Sistema web para gestão operacional de pintura eletrostática a pó, controle d
 
 ### 🚀 Como Usar
 
-- **Acesse:** https://osserv.vercel.app/ e entre com seu usuário e senha (computador ou celular).
+- **Acesse:** https://ordem-servico-sigma.vercel.app/ e entre com seu usuário e senha (computador ou celular).
 - **Todos veem os mesmos dados.** Tudo é gravado no banco de dados **Neon (Postgres)** da Vercel. Quando alguém lança uma OS, mexe no estoque ou cadastra um cliente, os outros aparelhos recebem a atualização sozinhos em poucos segundos (sem precisar recarregar).
 - No topo aparece o selo **● Sincronizado** (verde), **● Salvando…** (amarelo) ou **● Sem conexão** (vermelho — o sistema guarda a alteração e envia assim que a internet voltar; não feche a página nesse caso).
 - Se duas pessoas alterarem **o mesmo registro ao mesmo tempo**, a segunda gravação é recusada com um aviso e a tela é atualizada — nada é sobrescrito sem querer.
@@ -16,10 +16,21 @@ Sistema web para gestão operacional de pintura eletrostática a pó, controle d
 
 ---
 
+### 🆕 Novidades da versão 2.1
+
+- **Painel de Produção em colunas** (Aguardando / Em produção / Concluídas), com temperatura e tempo de cura em destaque em cada OS e barras de estoque ao lado (as tintas mais perto do mínimo aparecem primeiro).
+- **Ficha da OS** (toque no cartão): no celular ocupa a tela toda, com caixas grandes de limpeza, pesagem e o saldo que vai sobrar da tinta. Botões *Salvar e iniciar* / *Salvar e concluir*.
+- **Menos botões por OS**: a ação principal da etapa, *Balança* e o menu **⋯** (ficha, PDF, editar, excluir).
+- **Segurança**: o servidor confere o tipo de cada campo, só aceita baixa de tinta do operador quando ela bate com o consumo lançado na OS, não deixa repetir número de OS (OS nova com número já usado recebe o próximo livre) e aumenta a espera a cada senha errada.
+- **Nada se perde sem aviso**: se o servidor recusar uma gravação (alguém mexeu no mesmo registro), o Painel mostra a lista do que não foi salvo para lançar de novo.
+- Tirar ou trocar a tinta de uma OS devolve o consumo ao estoque; CSV exportado protegido para o Excel.
+
+---
+
 ### 🗄️ Configurar o Banco de Dados Neon na Vercel (uma única vez)
 
 1. Envie para o GitHub **todos** os arquivos desta pasta, inclusive as pastas `api/` e `lib/` e o arquivo `package.json` (use o `PUBLICAR_GITHUB.bat` ou o upload pelo site do GitHub).
-2. Na Vercel, abra o projeto → aba **Storage** → **Create Database** → escolha **Neon (Postgres)** → crie (plano Free serve) → **Connect Project** e marque o projeto `osserv`.
+2. Na Vercel, abra o projeto → aba **Storage** → **Create Database** → escolha **Neon (Postgres)** → crie (plano Free serve) → **Connect Project** e marque o projeto do sistema de OS.
    A Vercel cria sozinha a variável `DATABASE_URL` (e `POSTGRES_URL`).
 3. Vá em **Deployments** → no último deploy, **⋯ → Redeploy** (necessário para o projeto enxergar a variável nova).
 4. Abra o site: aparece **Primeiro acesso**. Crie o Administrador. As tabelas são criadas automaticamente.
@@ -63,4 +74,3 @@ Sistema web para gestão operacional de pintura eletrostática a pó, controle d
 - O Neon também mantém histórico do banco (restauração pelo painel do Neon, conforme o plano).
 - Senhas são guardadas **criptografadas (scrypt)** no servidor; a sessão usa cookie protegido (HttpOnly). As permissões (ADM x Operador) são verificadas **no servidor**, não só na tela.
 - O Operador consegue: emitir/editar OS, cadastrar clientes e baixar tinta pela OS. Todo o resto (cadastro de tintas, entradas/ajustes de estoque, exclusões, dados da empresa, usuários, backup) é só do ADM.
-- ajuste

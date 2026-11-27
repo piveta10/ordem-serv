@@ -26,7 +26,7 @@ if %ERRORLEVEL% NEQ 0 (
 echo Inicializando repositorio Git...
 git init
 git add .
-git commit -m "Sistema Piveta v2.0 - banco de dados Neon compartilhado"
+git commit -m "Sistema Piveta v2.1 - painel de producao e correcoes de seguranca"
 git branch -M main
 
 echo.
@@ -52,7 +52,7 @@ echo ========================================================
 echo   PROJETO ENVIADO COM SUCESSO!
 echo ========================================================
 echo.
-echo O site da Vercel (osserv.vercel.app) atualiza sozinho em 1 a 2 minutos.
+echo O site da Vercel (ordem-servico-sigma.vercel.app) atualiza sozinho em 1 a 2 minutos.
 echo Lembre: as pastas "api" e "lib" e o arquivo "package.json" precisam ir juntos.
 echo Banco de dados: veja o passo a passo no README.md.
 echo.
